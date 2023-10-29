@@ -1,3 +1,16 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-list>
+    <ion-item>
+      <ion-toggle [disabled]="currentDose !== 1" [enableOnOffLabels]="true">1er dose</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle [disabled]="currentDose !== 2">2ème dose</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle [disabled]="currentDose !== 3">3ème dose</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle [disabled]="currentDose !== 4">4ème dose</ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-app>
