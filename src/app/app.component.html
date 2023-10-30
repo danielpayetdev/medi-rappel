@@ -1,16 +1,45 @@
 <ion-app>
-  <ion-list>
-    <ion-item>
-      <ion-toggle [disabled]="currentDose !== 1" [enableOnOffLabels]="true">1er dose</ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-toggle [disabled]="currentDose !== 2">2ème dose</ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-toggle [disabled]="currentDose !== 3">3ème dose</ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-toggle [disabled]="currentDose !== 4">4ème dose</ion-toggle>
-    </ion-item>
-  </ion-list>
+  <ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bonjour Hélène ❤️</ion-card-title>
+        <ion-card-subtitle>voici tes rappels</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-list-header color="secondary">
+            <ion-label>izalgi</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-toggle style="display: none;"></ion-toggle>
+            <ion-toggle (ionChange)="onDoseIzalgiPrise(1, $event)" [checked]="this.rappelService.izalgiDose >= 1">1er
+              dose</ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-toggle (ionChange)="onDoseIzalgiPrise(2, $event)" [checked]="this.rappelService.izalgiDose >= 2"
+              [disabled]="this.rappelService.izalgiDose < 1">2ème
+              dose</ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-toggle (ionChange)="onDoseIzalgiPrise(3, $event)" [checked]="this.rappelService.izalgiDose >= 3"
+              [disabled]="this.rappelService.izalgiDose < 2">3ème
+              dose</ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-toggle (ionChange)="onDoseIzalgiPrise(4, $event)" [checked]="this.rappelService.izalgiDose === 4"
+              [disabled]="this.rappelService.izalgiDose < 3">4ème
+              dose</ion-toggle>
+          </ion-item>
+          <ion-list-header color="secondary">
+            <ion-label>arixtra</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-toggle (ionChange)="onDoseArixtraPrise($event)" [checked]="this.rappelService.arixtraDose === 1">1er
+              dose</ion-toggle>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+  <ion-label>by HermesSoft</ion-label>
 </ion-app>
